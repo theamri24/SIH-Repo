@@ -1,0 +1,195 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String   @id @default(cuid())
+  email       String   @unique
+  password    String
+  firstName   String
+  lastName    String
+  role        String   // "STUDENT", "TEACHER", "ADMIN"
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  student     Student?
+  teacher     Teacher?
+  admin       Admin?
+
+  @@map("users")
+}
+
+model Student {
+  id              String   @id @default(cuid())
+  studentId       String   @unique
+  userId          String   @unique
+  year            Int
+  semester        Int
+  department      String
+  specialization  String?
+  preferences     String?  // Store as JSON string
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  enrollments     Enrollment[]
+  timetables      Timetable[]
+
+  @@map("students")
+}
+
+model Teacher {
+  id              String   @id @default(cuid())
+  teacherId       String   @unique
+  userId          String   @unique
+  department      String
+  designation     String
+  maxWorkload     Int      @default(40) // Maximum hours per week
+  availability    String?  // Store as JSON string
+  preferences     String?  // Store as JSON string
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  courses         Course[]
+  timetables      Timetable[]
+
+  @@map("teachers")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  adminId   String   @unique
+  userId    String   @unique
+  level     String   // "SUPER_ADMIN", "ADMIN", "MODERATOR"
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("admins")
+}
+
+model Course {
+  id                String   @id @default(cuid())
+  courseId          String   @unique
+  courseName        String
+  courseCode        String   @unique
+  creditHours       Int
+  department        String
+  multidisciplinaryTags String? // Store as comma-separated string
+  prerequisites     String?  // Store as comma-separated string
+  maxStudents       Int?
+  minStudents       Int      @default(1)
+  isActive          Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  // Relations
+  teacherId         String
+  teacher           Teacher  @relation(fields: [teacherId], references: [id])
+  enrollments       Enrollment[]
+  timetables        Timetable[]
+
+  @@map("courses")
+}
+
+model Room {
+  id            String   @id @default(cuid())
+  roomId        String   @unique
+  roomName      String
+  roomType      String   // "CLASSROOM", "LABORATORY", etc.
+  capacity      Int
+  floor         Int
+  building      String
+  equipment     String?  // Store as comma-separated string
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  timetables    Timetable[]
+
+  @@map("rooms")
+}
+
+model Enrollment {
+  id        String   @id @default(cuid())
+  studentId String
+  courseId  String
+  status    String   @default("ACTIVE") // "ACTIVE", "COMPLETED", "DROPPED", "SUSPENDED"
+  grade     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  student   Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  course    Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, courseId])
+  @@map("enrollments")
+}
+
+model Timetable {
+  id          String   @id @default(cuid())
+  studentId   String?
+  teacherId   String
+  courseId    String
+  roomId      String
+  dayOfWeek   Int      // 0 = Sunday, 1 = Monday, etc.
+  startTime   String   // Format: "HH:MM"
+  endTime     String   // Format: "HH:MM"
+  semester    Int
+  academicYear String
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  student     Student? @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  teacher     Teacher  @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  room        Room     @relation(fields: [roomId], references: [id])
+
+  @@map("timetables")
+}
+
+model AILog {
+  id              String   @id @default(cuid())
+  operation       String   // Type of AI operation (GENERATE, OPTIMIZE, CONFLICT_RESOLVE)
+  inputData       String   // Store as JSON string
+  outputData      String   // Store as JSON string
+  conflicts       String?  // Store as JSON string
+  suggestions     String?  // Store as JSON string
+  executionTime   Int      // Execution time in milliseconds
+  status          String   // SUCCESS, FAILED, PARTIAL
+  createdAt       DateTime @default(now())
+
+  @@map("ai_logs")
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  message   String
+  type      String   // "TIMETABLE_UPDATE", "CONFLICT_RESOLVED", etc.
+  isRead    Boolean  @default(false)
+  data      String?  // Store as JSON string
+  createdAt DateTime @default(now())
+
+  @@map("notifications")
+}
