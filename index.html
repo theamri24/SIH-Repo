@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Timetable Generator for NEP 2020</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-calendar-alt"></i>
+                <span>AI Timetable</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About NEP 2020</a></li>
+                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="#benefits" class="nav-link">Benefits</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">AI-Powered Timetable Generator for NEP 2020 Multidisciplinary Education</h1>
+                <p class="hero-description">
+                    Traditional timetables fail in flexible multidisciplinary structures. Our AI solution generates smart, 
+                    clash-free, and personalized timetables that adapt to the dynamic needs of modern education.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('contact')">
+                        <i class="fas fa-rocket"></i>
+                        Get Started
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('how-it-works')">
+                        <i class="fas fa-play"></i>
+                        Try Demo
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="ai-workflow">
+                    <div class="workflow-step">
+                        <div class="step-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Inputs</h3>
+                        <p>Preferences, Constraints, Resources</p>
+                    </div>
+                    <div class="workflow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="workflow-step ai-engine">
+                        <div class="step-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>AI Engine</h3>
+                        <p>Smart Optimization</p>
+                    </div>
+                    <div class="workflow-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="workflow-step">
+                        <div class="step-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Output</h3>
+                        <p>Perfect Timetable</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Personalized Student Timetables</h3>
+                    <p>AI creates customized schedules based on individual student preferences, learning patterns, and academic goals.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Teacher Workload Balancing</h3>
+                    <p>Intelligent distribution of teaching loads ensuring optimal work-life balance and professional development time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Classroom/Lab Optimization</h3>
+                    <p>Maximize resource utilization with smart allocation of classrooms, labs, and equipment based on course requirements.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Dynamic Updates & Flexibility</h3>
+                    <p>Real-time adjustments to accommodate changes, cancellations, and new requirements without disrupting the entire schedule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About NEP 2020 -->
+    <section id="about" class="about-nep">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title">About NEP 2020</h2>
+                    <p class="about-description">
+                        The National Education Policy 2020 emphasizes multidisciplinary education, allowing students to choose 
+                        subjects across different domains. This flexibility requires sophisticated timetable management that 
+                        traditional systems cannot handle.
+                    </p>
+                    <div class="nep-features">
+                        <div class="nep-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Multidisciplinary Course Selection</span>
+                        </div>
+                        <div class="nep-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Flexible Credit System</span>
+                        </div>
+                        <div class="nep-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Cross-Domain Learning</span>
+                        </div>
+                        <div class="nep-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Skill-Based Education</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="nep-diagram">
+                        <div class="diagram-center">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>NEP 2020</h3>
+                        </div>
+                        <div class="diagram-branches">
+                            <div class="branch">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>Technology</span>
+                            </div>
+                            <div class="branch">
+                                <i class="fas fa-palette"></i>
+                                <span>Arts</span>
+                            </div>
+                            <div class="branch">
+                                <i class="fas fa-flask"></i>
+                                <span>Science</span>
+                            </div>
+                            <div class="branch">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Business</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Data Collection</h3>
+                        <p>Gather user preferences, institutional constraints, resource availability, and existing timetable data.</p>
+                        <div class="step-features">
+                            <span class="feature-tag">Student Preferences</span>
+                            <span class="feature-tag">Teacher Availability</span>
+                            <span class="feature-tag">Room Constraints</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>AI Processing</h3>
+                        <p>Advanced algorithms analyze data, detect conflicts, and optimize schedules using machine learning.</p>
+                        <div class="step-features">
+                            <span class="feature-tag">Conflict Detection</span>
+                            <span class="feature-tag">Optimization</span>
+                            <span class="feature-tag">ML Algorithms</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Schedule Generation</h3>
+                        <p>Generate multiple timetable options with detailed reports and optimization suggestions.</p>
+                        <div class="step-features">
+                            <span class="feature-tag">Multiple Options</span>
+                            <span class="feature-tag">Conflict Reports</span>
+                            <span class="feature-tag">Suggestions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2 class="section-title">Benefits</h2>
+            <div class="benefits-tabs">
+                <button class="tab-btn active" data-tab="students">For Students</button>
+                <button class="tab-btn" data-tab="teachers">For Teachers</button>
+                <button class="tab-btn" data-tab="institutions">For Institutions</button>
+            </div>
+            <div class="benefits-content">
+                <div class="tab-content active" id="students">
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-clock"></i>
+                            <h3>Optimal Learning Schedule</h3>
+                            <p>Personalized timetables that align with your peak learning hours and preferences.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-route"></i>
+                            <h3>Seamless Course Navigation</h3>
+                            <p>Easy transition between multidisciplinary courses without scheduling conflicts.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-balance-scale"></i>
+                            <h3>Workload Balance</h3>
+                            <p>Intelligent distribution of courses to prevent overwhelming schedules.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="teachers">
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-chalkboard"></i>
+                            <h3>Efficient Teaching Schedule</h3>
+                            <p>Optimized teaching loads with adequate preparation and research time.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-users"></i>
+                            <h3>Better Student Engagement</h3>
+                            <p>Well-planned schedules lead to better student attendance and participation.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Professional Development</h3>
+                            <p>Dedicated time slots for research, training, and skill enhancement.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="institutions">
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-building"></i>
+                            <h3>Resource Optimization</h3>
+                            <p>Maximum utilization of classrooms, labs, and equipment with minimal waste.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-cogs"></i>
+                            <h3>Administrative Efficiency</h3>
+                            <p>Automated timetable generation reduces manual work and human errors.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-trophy"></i>
+                            <h3>Enhanced Reputation</h3>
+                            <p>Modern AI-powered systems attract tech-savvy students and faculty.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Demo Form -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2 class="section-title">Request a Demo</h2>
+                    <p class="contact-description">
+                        Ready to transform your institution's timetable management? Get in touch with us for a personalized demo.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@aitimetable.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 98765 43210</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>New Delhi, India</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="institution" name="institution" placeholder="Institution Name" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="role" name="role" required>
+                            <option value="">Select Your Role</option>
+                            <option value="admin">Administrator</option>
+                            <option value="teacher">Teacher</option>
+                            <option value="student">Student</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Tell us about your requirements" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Request Demo
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>AI Timetable</span>
+                    </div>
+                    <p>Revolutionizing education scheduling with AI-powered solutions for NEP 2020 compliance.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About NEP 2020</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@aitimetable.com</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-map-marker-alt"></i> New Delhi, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Timetable Generator. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
